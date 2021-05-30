@@ -3,19 +3,19 @@
 
   import java.io.IOException;
   import javax.servlet.ServletException;
-  import javax.servlet.annotation.WebServlet;
   import javax.servlet.http.HttpServlet;
   import javax.servlet.http.HttpServletRequest;
   import javax.servlet.http.HttpServletResponse;
-  import scoremessage.ScoreMessage;
-  import forms.GradeFrom;
+
+//import scoremanager.ScoreManager;
+import forms.GradeFrom;
+  import scoremessage.ScoreManager;
 
   /**
    * 
    * @author Administrator
    * 完成学生成绩插入请求控制
    */
-  @WebServlet(urlPatterns = "/StudentAddGradeFinsh")
   public class StudentGradeAddFinsh extends HttpServlet {
 
 	@Override
@@ -36,7 +36,7 @@
 		gradeFrom.setStudentId(studentId);
 		gradeFrom.setGrade(grade);
 		
-		ScoreMessage scoreMassage=ScoreMessage.getInstance();
+		ScoreManager scoreMassage=ScoreManager.getInstance();
 		scoreMassage.addGrade(gradeFrom);
 		
 		req.getRequestDispatcher("/StudentgradeInfo").forward(req, resp);

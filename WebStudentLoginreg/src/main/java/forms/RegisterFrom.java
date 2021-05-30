@@ -9,6 +9,8 @@
     * 表单Bean-完成用户注册信息的收集
     */
   @Data
+  @AllArgsConstructor
+  @NoArgsConstructor
   public class RegisterFrom {
 
   private String name;//用户名

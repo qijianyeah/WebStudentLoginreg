@@ -8,7 +8,6 @@
   import javax.servlet.ServletException;
   import javax.servlet.ServletRequest;
   import javax.servlet.ServletResponse;
-  import javax.servlet.annotation.WebFilter;
   import javax.servlet.http.HttpServletRequest;
   import javax.servlet.http.HttpServletResponse;
   import javax.servlet.http.HttpSession;
@@ -18,7 +17,6 @@
    * 请求验证过滤器
    *用户没有登录的情况下就会转到登录页面
   */
-  @WebFilter(filterName = "accessFilter" , urlPatterns = "*.jsp")
   public class AccessController implements Filter {
 
     /* (non-Javadoc)

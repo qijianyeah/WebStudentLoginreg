@@ -16,7 +16,7 @@ import java.sql.*;
    * @author Administrator
    * 成绩持久层实现
    */
-   public class GradeDaoImpl {
+   public class GradeDaoImpl implements GradeDao{
 	   String  sql=null;
 	   Connection conn = null;
 	   Statement sta = null;
@@ -28,20 +28,22 @@ import java.sql.*;
 	   
 	   /**
 	    * 查找所有学生的成绩
-	    * @param：null
+	    * @param：username
 	    * @return list
 	    * 
 	    */
-       public List findAllGread()
+       public List findAllGread(String username)
        { 
     	  
-    	   try{
+    	   
                /**
                 * 学生表register 课程表class 成绩表grade，通过等值连接完成关联查询
                 */
-    		  sql="select grade.id,register.name,class.class,class.teacher,class.score,grade.grade " +
-					  "from grade,class,register " +
-					  "where  (grade.stu_id=register.id) and (grade.class_id=class.id)";
+    	   if(username==null)  
+    	   sql="select grade.id,register.name,class.class,class.teacher,class.score,grade.grade from grade,class,register where  (grade.stu_id=register.id) and (grade.class_id=class.id)";
+    	   else
+    	   sql="select grade.id,register.name,class.class,class.teacher,class.score,grade.grade from grade,class,register where  (grade.stu_id=register.id) and (grade.class_id=class.id)and register.name like '%" +username+"%'";
+    	   try{
     		    conn = DB.getConn();
     			sta = conn.createStatement();
     			rs = sta.executeQuery(sql);
@@ -80,8 +82,8 @@ import java.sql.*;
    		     } 
      
        /**
-          *查找所有学生id
-		  * @param null
+          *查找所有学生id ���������û� 
+		  * @param
 		  * @return List 
         */
 		public List findAllStudentId()
@@ -125,8 +127,8 @@ import java.sql.*;
       
 		
 		/**
-          * 查找所有课程id
-		  * @param null
+          * 查找所有课程id ���������û� 
+		  * @param
 		  * @return List 
         */
 	    public List findAllClassId()
@@ -167,7 +169,7 @@ import java.sql.*;
 		
 	    /**
           * 插入学生成绩
-		  *  封装成绩的表单bean
+		  * @param gradeFrom 封装成绩的表单bean
 		  * @return null 
        */
 	    public void addGrade(GradeFrom gradeFrom)
@@ -205,8 +207,8 @@ import java.sql.*;
 	    } 
 	   
 	    /**
-          * 通过id查找成绩
-		  * 成绩标识
+          * 通过id查找成绩 ���������û� 
+		  * @param id 成绩标识
 		  * @return GradeBean
          */
 	    public GradeBean findGradeById(int id)
@@ -249,8 +251,9 @@ import java.sql.*;
 		     } 
       
 	    /**
-         * 通过id更新学生成绩
-		  *  成绩标识、学生成绩
+         * 通过id更新学生成绩 ���������û� 
+		  * @param id 成绩标识、
+		 *  @param  grade 学生成绩
 		  * @return null
         */
 	    public void updateGrade(int id,String grade)
@@ -281,8 +284,8 @@ import java.sql.*;
         }
        
 	    /**
-         * 通过id删除学生成绩
-		  *  成绩标识
+         * 通过id删除学生成绩 ���������û� 
+		  * @param id 成绩标识
 		  * @return null
         */
 	     public void StudentGradeDel(int id)

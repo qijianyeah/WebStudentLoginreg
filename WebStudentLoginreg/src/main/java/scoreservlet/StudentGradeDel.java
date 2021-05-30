@@ -1,22 +1,22 @@
 
   package scoreservlet;
 
-  import javax.servlet.annotation.WebServlet;
   import javax.servlet.http.HttpServlet;
   import java.io.IOException;
   import javax.servlet.ServletException;
   import javax.servlet.http.HttpServlet;
   import javax.servlet.http.HttpServletRequest;
   import javax.servlet.http.HttpServletResponse;
-  import scoremessage.ScoreMessage;
-  
+
+//import scoremanager.ScoreManager;
+  import scoremessage.ScoreManager;
+
   /**
   * 
   * @author Administrator
   * 完成删除指定学生的请求控制
   */
 
-  @WebServlet(urlPatterns = "/StudentGradeDel")
    public class StudentGradeDel extends HttpServlet{
 
 	@Override
@@ -24,7 +24,7 @@
 			throws ServletException, IOException {
 		 
 		    int id=Integer.parseInt(req.getParameter("Id"));
-		    ScoreMessage scoreMassage=ScoreMessage.getInstance();
+		    ScoreManager scoreMassage=ScoreManager.getInstance();
 		    scoreMassage.StudentGradeDel(id);
 		    req.getRequestDispatcher("/StudentgradeInfo").forward(req, resp);
 		 		

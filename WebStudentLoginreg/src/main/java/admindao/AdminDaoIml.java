@@ -11,8 +11,8 @@
    import forms.AdminPasswordForm;
    import mode.UseBean;
    import util.DB;
-  
-  
+
+
   /**
    * 
    * @author Administrator
@@ -31,7 +31,7 @@
 	  
 	  /**
 		  *查找所有管理员信息 ���������û� 
-		  * @param null
+		  * @param
 		  * @return List 
 		  */
 	  public List findAllAdmin()
@@ -74,7 +74,7 @@
 	
 	     /**
 		  *取得管理员信息 ���������û� 
-		  * @param 管理员姓名
+		  * @param adminName 管理员姓名
 		  * @return UseBean 
 		  */
 	  public UseBean findAdminPsaaword (String adminName)
@@ -125,7 +125,7 @@
        try {
            
             sql="update user set password='"+newPassword+"' where id="+id;
-		    conn = DB.getConn();  
+		    conn = DB.getConn();
 			sta = conn.createStatement();
 			sta.executeUpdate(sql); 
 		} catch (SQLException e) {

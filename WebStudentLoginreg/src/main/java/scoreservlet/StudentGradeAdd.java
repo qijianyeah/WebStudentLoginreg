@@ -1,7 +1,6 @@
 
   package scoreservlet;
 
-  import javax.servlet.annotation.WebServlet;
   import javax.servlet.http.HttpServlet;
   import java.io.IOException;
   import java.util.List;
@@ -10,14 +9,15 @@
   import javax.servlet.http.HttpServletRequest;
   import javax.servlet.http.HttpServletResponse;
   import javax.servlet.http.HttpSession;
-  import scoremessage.ScoreMessage;
-  
+
+//import scoremanager.ScoreManager;
+  import scoremessage.ScoreManager;
+
   /**
    * 
    * @author Administrator
    * 完成添加学生成绩请求控制-转入添加成绩页面
    */
-  @WebServlet(urlPatterns = "/GradeAdd")
    public class StudentGradeAdd extends HttpServlet{
 
 	@Override
@@ -25,7 +25,7 @@
 			throws ServletException, IOException {
 		 
 		
-		    ScoreMessage scoreMassage=ScoreMessage.getInstance();
+		    ScoreManager scoreMassage=ScoreManager.getInstance();
 		    List list1 =scoreMassage.findAllStudentId();
 		    List list2 =scoreMassage.findAllClassId();
 			req.setAttribute("studentAllId",list1);

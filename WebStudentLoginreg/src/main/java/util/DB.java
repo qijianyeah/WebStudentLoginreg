@@ -12,11 +12,11 @@
 	  public static final String URL = "jdbc:mysql://localhost:3306/llc?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;failOverReadOnly=false";
 	  public static final String USER = "root";
 	  public static final String PASSWORD = "root";
+	public static Connection getConn() {
 
-	  public static Connection getConn() {
 		Connection conn = null;
 		try {
-			Class.forName(Driver);
+			Class.forName("com.mysql.jdbc.Driver");
 //			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/llc?user=root&password=root");
 			conn = DriverManager.getConnection(URL,USER,PASSWORD);
 		} catch (ClassNotFoundException e) {
