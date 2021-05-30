@@ -11,8 +11,6 @@
    * 结果Bean-完成学生信息的收集
    */
    @Data
-   @AllArgsConstructor
-   @NoArgsConstructor
    public class StudentBean {
 	String name;//姓名
 	String password;//密码
