@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WebStudentLoginreg:war">
+    <output-path>$PROJECT_DIR$/WebStudentLoginreg/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>WebStudentLoginreg</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="WebStudentLoginreg.war">
+      <element id="artifact" artifact-name="WebStudentLoginreg:war exploded" />
+    </root>
+  </artifact>
+</component>
